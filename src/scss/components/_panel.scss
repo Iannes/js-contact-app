@@ -1,0 +1,27 @@
+.panel {
+  &-heading {
+    background: $turquoise;
+    color: #eee;
+    border: 0!important;
+  }
+
+  &-tabs,
+  &-block {
+    border: 0;
+    &:first-child {
+      border-top: 0!important;
+      border-bottom: 1px solid #dbdbdb!important;
+    }
+  }
+
+  .list-item {
+    display: flex;
+    min-width: 100%;
+    border-bottom: 1px solid #dbdbdb;
+    justify-content: space-between;
+  }
+
+  .button-container {
+    display: flex;
+  }
+}

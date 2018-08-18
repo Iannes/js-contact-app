@@ -1,0 +1,19 @@
+input {
+  cursor: pointer;
+  margin-bottom: 20px;
+  width: 100%;
+  font-size: 30px;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+button.is-primary {
+  background-color: $turquoise!important;
+  transition: all .4s ease-in-out;
+
+  &:hover {
+    background-color: darken($turquoise, 10%)!important;
+  }
+}

@@ -1,0 +1,23 @@
+@mixin smooth-fonts() {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+// Sass Breakpoints
+
+@mixin for-size($size) {
+  @if $size == phone-down {
+    @media (max-width: 800px) { @content; }
+  } @else if $size == tablet-down {
+    @media (max-width: 1024px) { @content; }
+  } @else if $size == small-laptop {
+    @media (max-width: 1200px) { @content; }
+  }@else if $size == laptop-down {
+    @media (max-width: 1440px) { @content; }
+  }@else if $size == desktop-up {
+    @media (min-width: 1441px) { @content; }
+  } @else if $size == big-desktop-up {
+  @media (min-width: 1550px) { @content; }
+  } @else if $size == desktop-hover {
+  @media (min-width: 1150px) { @content; }
+  }
+}

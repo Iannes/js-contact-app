@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "firstName": "john",
+      "lastName": "doe",
+      "address": "address",
+      "phone": "phone"
+    },
+    {
+      "firstName": "john",
+      "lastName": "doe",
+      "address": "address",
+      "phone": "phone"
+    },
+    {
+      "firstName": "john",
+      "lastName": "doe",
+      "address": "address",
+      "phone": "phone"
+    }
+  ]
+}

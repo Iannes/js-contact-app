@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contact App | Yannis Spyrou</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
+</head>
+<body>
+
+    <header>
+        <h1>Contacts</h1>
+    </header>
+<section class="app-wrapper">
+    <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Add new contact</p>
+                <button id="close-btn" class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <form id='form' action="">
+                    <input name='first-name' id="first-name" class="input" type="text" placeholder="First Name">
+                    <input name='last-name' id="last-name" class="input" type="text" placeholder="Last Name">
+                    <input name='phone' id="phone" class="input" type="number" placeholder="Phone">
+                    <input name='address' id="address" class="input" type="text" placeholder="Address">
+                    <footer class="modal-card-foot">
+                        <button type="submit" id="save-contact" class="button is-primary">Save changes</button>
+                        <button id="cancel" class="button">Cancel</button>
+                    </footer>
+                </form>
+            </section>
+        </div>
+    </div>
+
+
+    <section class="contacts-wrapper">
+        <article class="panel">
+            <p class="panel-heading">Contacts</p>
+            <ul id='list'></ul>
+                <button id="add-contact" class="button is-link is-outlined is-fullwidth">Add Contact</button>
+        </article>
+    </section>
+</section>
+<script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+</body>
+</html>

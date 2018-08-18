@@ -1,0 +1,42 @@
+h1 {
+  font-size: 40px;
+  line-height: 43px;
+  font-weight: bold;
+}
+
+a {
+  color: $secondary;
+  transition: color .4s ease-in-out;
+  cursor: pointer;
+  display: inline-block;
+
+  @include for-size(desktop-hover) {
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+p {
+  font: $font-family;
+  margin: 20px auto;
+  font-weight: 300;
+}
+
+.app-wrapper {
+  position: relative;
+  top: 200px;
+  padding: 30px;
+  width: 65%;
+  max-width: 750px;
+  margin: auto;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}

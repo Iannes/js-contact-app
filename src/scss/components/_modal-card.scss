@@ -1,0 +1,12 @@
+.modal {
+  &.open {
+    display: flex;
+  }
+
+  &-card-head {
+    background-color: $turquoise;
+    p {
+      color: #eee;
+    }
+  }
+}
