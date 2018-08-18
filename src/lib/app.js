@@ -57,6 +57,8 @@ export default class App {
         // This id will be our primary key
         let countId = window.localStorage.getItem('count')
         window.localStorage.setItem(countId, JSON.stringify(obj));
+        // reload page from cache
+        window.location.reload(false);
   }
 
   edit(contact) {
