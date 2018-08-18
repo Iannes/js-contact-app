@@ -21,10 +21,20 @@ body {
 }
 
 header {
-  width: 100%;
-  height: 100px;
-  background: black;
-  color: white;
-  padding: 20px;
+    width: 100%;
+    height: 100px;
+    background: black;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button.is-link.is-outlined {
+    max-width: 150px;
+    background-color: #1bafba;
+    color: #eee;
+    border-color: #1bafba;
 }
 

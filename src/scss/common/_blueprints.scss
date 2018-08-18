@@ -32,11 +32,10 @@ p {
 }
 
 .app-wrapper {
-  position: relative;
-  top: 200px;
-  padding: 30px;
-  width: 65%;
-  max-width: 750px;
-  margin: auto;
-  box-shadow: 3px 3px 5px 6px #ccc;
+    position: relative;
+    padding: 30px;
+    width: 100%;
+    margin: auto;
+    height: 100vh;
+    box-shadow: 3px 3px 5px 6px #ccc;
 }
