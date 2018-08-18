@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --mode=development --hot",
-    "server": "json-server --watch db.json"
+    "server": "json-server --watch db.json",
+    "build": "webpack -p"
   },
   "dependencies": {
     "autoprefixer": "^8.6.3",
@@ -21,6 +22,7 @@
     "eslint-plugin-prettier": "^2.6.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
+    "jsonfile": "^4.0.0",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
     "postcss-loader": "^2.1.5",

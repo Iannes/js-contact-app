@@ -18,6 +18,9 @@ module.exports = {
     open: true,
 
   },
+  node: {
+    fs: "empty"
+  },
   module: {
     rules: [
       {

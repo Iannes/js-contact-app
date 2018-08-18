@@ -3,6 +3,5 @@ import App from './lib/app.js'
 console.log('App Loaded');
 
 
-
 const app = new App()
 app.init()

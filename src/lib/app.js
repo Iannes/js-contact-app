@@ -1,3 +1,9 @@
+import {fetchData} from './components/fetchData'
+import { setId } from './components/setId'
+let user = {};
+let newUser = {}
+let obj = {}
+
 export default class App {
 
   constructor(id, firstName, lastName, address, phone) {
@@ -15,39 +21,13 @@ export default class App {
     const cancelButton = document.getElementById('cancel');
     cancelButton.addEventListener('click', this.closeLightbox);
     const saveContact = document.getElementById('save-contact');
-    saveContact.addEventListener('click', this.saveContact);
-
+    saveContact.addEventListener('click', this.saveContact)
   }
 
   // initialize our app and retrieve data
   init() {
-    this.updateView(data)
+    fetchData()
   }
-
-  retrieveContacts() {
-
-  }
-
-
-  // retrieve contacts from localstorage and updates view
-  updateView(source) {
-    this.renderView('list', source)
-  }
-
-  renderView(element, list) {
-
-    const targetElement = document.getElementById(element)
-      list.map((item, i) => {
-        targetElement.innerHTML +=
-          `<li class="list-item">
-              <a data-key=${i} class="panel-block">${item.firstName}</a>
-              <div class="button-container">
-                <a data-key=${i} id="edit-contact" class="panel-block">edit</a>
-                <a data-key=${i} id="delete-contact" class="panel-block delete-contact">delete</a>
-              </div>
-          </li> `
-      })
-    }
 
   openLightbox() {
     const modal = document.querySelector('.modal')
@@ -59,21 +39,24 @@ export default class App {
   }
 
   saveContact(e) {
+
     e.preventDefault();
-    //get the form group
-    const form = document.getElementById('form').elements
-    // convert to array
-    const inputList = [...form]
-    // loop through array and save data
-    inputList.map(input => {
-      localStorage.setItem(input.attributes.name.value, input.value);
-
-    })
-  }
-
-
-  add(contact) {
-
+      //get the form group
+      const form = document.getElementById('form').elements
+      // convert to array
+      const inputList = [...form]
+      // Filter out button elements
+      const filtered = inputList.filter(i => i.className !== 'button' && i.className !== 'button is-primary')
+      // loop through array and save data into an object
+      filtered.map((input, i) => {
+         newUser = { [input.attributes.name.value]: input.value }
+         obj = Object.assign(user, newUser);
+        })
+        // Set unique id every time the form is submitted
+        setId()
+        // This id will be our primary key
+        let countId = window.localStorage.getItem('count')
+        window.localStorage.setItem(countId, JSON.stringify(obj));
   }
 
   edit(contact) {
@@ -88,22 +71,6 @@ export default class App {
     // retrieve contact
 
     // clear from localstorage
-  }
-
-
-  handleSubmit(e) {
-    e.preventDefault();
-    alert('submitted')
-
-    // check to see if contact exists
-
-    // if not save to local storage
-  }
-
-
-  submit() {
-    const form = document.getElementById("form")
-    this.form.onSubmit = alert('hi')
   }
 
 }
