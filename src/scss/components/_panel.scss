@@ -9,7 +9,6 @@
   }
 
   &-block {
-
     flex: 1 1 100%;
   }
 
@@ -27,6 +26,10 @@
     min-width: 100%;
     border-bottom: 1px solid #dbdbdb;
     justify-content: space-between;
+    @include for-size(phone-down) {
+      flex-direction: column;
+      align-items: baseline;
+    }
   }
 
   .button-container {
