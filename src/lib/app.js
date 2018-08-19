@@ -2,10 +2,10 @@ import {fetchData} from './components/fetchData'
 import { setId } from './components/setId'
 import { showEditModal } from './components/showEditModal'
 import { decrementCount } from './components/decrementCount'
+import { resetStorageKeys } from './components/resetStorageKeys'
 let user = {};
 let newUser = {}
 let obj = {}
-let saved = true
 
 export default class App {
 
@@ -26,14 +26,11 @@ export default class App {
   init() {
     fetchData()
     this.addListeners()
-    this.setState()
-  }
-
-  setState() {
-    return saved = !saved;
   }
 
   addListeners() {
+
+    // add listeners to edit and delete buttons
     const editContact = document.getElementsByClassName('edit-contact');
     const editArr = [...editContact]
     editArr.map(contact => contact.addEventListener('click', this.editContact))
@@ -106,17 +103,19 @@ export default class App {
     const dataKey = this.dataset.key
 
     let result = confirm("Are you sure you want to delete this contact ?");
-    if (result) {
-      // decrement count on localStorage
-      decrementCount()
-      // remove item using the data-key
-      window.localStorage.removeItem(dataKey)
-      // reload page from cache
-      window.location.reload(false);
 
-    }
+      if (result) {
+        // decrement count on localStorage
+        decrementCount()
+        // remove item using the data-key
+        window.localStorage.removeItem(dataKey)
+
+        // reload page
+        window.location.reload(true);
+        // const newKey = this.dataset.key
+
+      }
   }
-
 }
 
 

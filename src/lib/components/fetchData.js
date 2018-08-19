@@ -1,7 +1,6 @@
-import { findDuplicates } from './findDuplicates'
 import { updateView } from './updateView'
 export const fetchData = () => {
-  console.log('Fetching data..')
+
   let data = []
 
     let archive = {},
@@ -17,7 +16,7 @@ export const fetchData = () => {
 
     let keys = archive[key]
     data.push(keys)
-    console.log('keys',keys);
+    // console.log('keys',keys);
     return data
   });
 

@@ -1,32 +1,22 @@
-import { fetchData } from './fetchData'
-export const findDuplicates = (inputToCheck) => {
+/* { TODO -->  Fix Duplication Issue }
+================================
 
-  let data = []
+* At the moment each newly created contact has a unique id
+* but can have the same data.
+* This should loop through the storage and search for duplicates
+* once it does, it should let the user know that teh contact they try to
+* input, already exists.
+*
+*
 
-  let archive = {},
-    keys = Object.keys(localStorage),
-    i = keys.length;
+=================================================================
+*/
 
-  while (i--) {
-    archive[keys[i]] = localStorage.getItem(keys[i]);
-  }
+export const findDuplicates = () => {
+  // get json object stored in the dom
 
-  Object.keys(archive).forEach(key => {
+  // use its id to set as key
 
-    let keys = archive[key]
-    data.push(keys)
-    console.log(data);
-
-    // let str_count = localStorage.getItem("count");
-    data.map((item, i) => {
-      let jsonItem
-      // if the first character is a curly bracket we need to parse it
-      if (item[0] == '{') {
-        jsonItem = JSON.parse(item)
-        console.log(jsonItem);
-      } else {
-        return false;
-      }
-    })
-  });
+  // set the rest as values
 }
+

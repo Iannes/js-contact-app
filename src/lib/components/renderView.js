@@ -4,18 +4,22 @@ export const renderView = (element, list) => {
     const targetElement = document.getElementById(element)
     // Clear list
     targetElement.innerHTML = ''
+
     list.map((item, i) => {
+      let strObj
       let jsonItem
-      // if the first character is a curly bracket we need to parse it
+      let newObj
+      // if the first character is a curly bracket we parse its data
      if(item[0] == '{') {
         jsonItem = JSON.parse(item)
+        jsonItem["id"] = (`${i + 1}`)
 
      } else {
        return false;
      }
 
       targetElement.innerHTML +=
-        `<li data-key=${i + 1} class="list-item">
+        `<li data-json="${JSON.stringify(jsonItem)}" data-group=${i + 1}  class="list-item">
               <a data-key=${i + 1} class="panel-block">${jsonItem.firstName ? jsonItem.firstName : 'N / A'}</a>
               <a data-key=${i + 1} class="panel-block">${jsonItem.lastName ? jsonItem.lastName : 'N / A'}</a>
               <a data-key=${i + 1} class="panel-block hidden">${jsonItem.phone ? jsonItem.phone : 'N / A'}</a>
