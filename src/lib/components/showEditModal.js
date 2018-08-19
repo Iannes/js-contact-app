@@ -15,7 +15,7 @@ export const showEditModal = (element, object, primaryKey) => {
       // set the primary key to keep track of what needs to be edited
       saveContact.setAttribute('data-primary', primaryKey)
       const arr = [...targetElement]
-        // Populate inputs with localstorage data
+        // Populate modal's inputs with localstorage data
        arr.map(item => {
          switch (item.id) {
            case 'first-name':

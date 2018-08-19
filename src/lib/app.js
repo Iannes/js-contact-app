@@ -54,8 +54,7 @@ export default class App {
 
 
   saveContact(e) {
-    // every save button carries the list-item's id
-    // if the button has an edit id this means we are on editing modal
+
     e.preventDefault();
       //get the form group
       const form = document.getElementById('form').elements
@@ -63,25 +62,28 @@ export default class App {
       const inputList = [...form]
       // Filter out button elements
       const filtered = inputList.filter(i => i.className !== 'button' && i.className !== 'button is-primary')
-      // loop through array and save data into an object
+      // loop through inputs array and save data into an object
       filtered.map((input, i) => {
          newUser = { [input.attributes.name.value]: input.value }
-         obj = Object.assign(user, newUser);
+            obj = Object.assign(user, newUser);
         })
-
+          // every save button carries the list-item's id
+          // if the button has an edit id this means we are on editing modal
+          // showeditmodal.js sets that id when rendering the modal
         if (this.id == 'edit') {
-          // get the data key prop from the save button
-          const dataKey = this.dataset.primary
-          // remove previous item before updating
-          window.localStorage.removeItem(dataKey)
-          // set the edited info with the same id as a primary key
-          window.localStorage.setItem(dataKey, JSON.stringify(obj));
+            // get the data key prop from the save button
+            const dataKey = this.dataset.primary
+            // remove previous item before updating
+            window.localStorage.removeItem(dataKey)
+            // set the edited info with the same id as a primary key
+            window.localStorage.setItem(dataKey, JSON.stringify(obj));
+
         } else {
-          // Set unique id every time the form is submitted
-          setId()
-          // This id will be our primary key to edit contacts
-          let countId = window.localStorage.getItem('count')
-          window.localStorage.setItem(countId, JSON.stringify(obj));
+            // Set unique id every time the form is submitted
+            setId()
+            // This id will be our primary key to edit contacts
+            let countId = window.localStorage.getItem('count')
+            window.localStorage.setItem(countId, JSON.stringify(obj));
         }
 
         // reload page from cache

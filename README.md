@@ -1,16 +1,10 @@
-# ES6 Contact App
+# ES6 Prototype Contact App
 
 ## Installation
 ```
 Run npm install or yarn from the root directory.
 ```
 To fire up the dev server on `http://localhost:8080/`, type `npm run start` or `yarn start` from the app's root directory.
-
-
-### Dev Dependencies
--  App fetches data from a mock server using `json-server` dependency.
-- `Babel` for latest JavaScript features
-- `Webpack`
 
 
 ### Folder Structure
@@ -20,7 +14,9 @@ To fire up the dev server on `http://localhost:8080/`, type `npm run start` or `
 app/  # → Root folder
 ├── src/
   ├── lib/
-      └── app.js
+      └── components
+      app.js
   └── scss
-  └── index.js
+      index.html
+      index.js
 ```
