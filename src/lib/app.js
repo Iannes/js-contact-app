@@ -1,18 +1,15 @@
 import {fetchData} from './components/fetchData'
 import { setId } from './components/setId'
+import { showEditModal } from './components/showEditModal'
+import { decrementCount } from './components/decrementCount'
 let user = {};
 let newUser = {}
 let obj = {}
+let saved = true
 
 export default class App {
 
-  constructor(id, firstName, lastName, address, phone) {
-
-    this.id = id;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.address = address;
-    this.phone = phone;
+  constructor() {
 
     const addContacts = document.getElementById('add-contact');
     addContacts.addEventListener('click', this.openLightbox);
@@ -22,24 +19,43 @@ export default class App {
     cancelButton.addEventListener('click', this.closeLightbox);
     const saveContact = document.getElementById('save-contact');
     saveContact.addEventListener('click', this.saveContact)
+
   }
 
-  // initialize our app and retrieve data
+  // initialize app and retrieve data
   init() {
     fetchData()
+    this.addListeners()
+    this.setState()
+  }
+
+  setState() {
+    return saved = !saved;
+  }
+
+  addListeners() {
+    const editContact = document.getElementsByClassName('edit-contact');
+    const editArr = [...editContact]
+    editArr.map(contact => contact.addEventListener('click', this.editContact))
+
+    const deleteContact = document.getElementsByClassName('delete-contact');
+    const deleteArr = [...deleteContact]
+    deleteArr.map(contact => contact.addEventListener('click', this.deleteContact))
   }
 
   openLightbox() {
-    const modal = document.querySelector('.modal')
+    const modal = document.querySelector('#add-modal')
     modal.classList.add('open')
   }
   closeLightbox() {
-    const modal = document.querySelector('.modal')
+    const modal = document.querySelector('#add-modal')
     modal.classList.remove('open')
   }
 
-  saveContact(e) {
 
+  saveContact(e) {
+    // every save button carries the list-item's id
+    // if the button has an edit id this means we are on editing modal
     e.preventDefault();
       //get the form group
       const form = document.getElementById('form').elements
@@ -52,27 +68,51 @@ export default class App {
          newUser = { [input.attributes.name.value]: input.value }
          obj = Object.assign(user, newUser);
         })
-        // Set unique id every time the form is submitted
-        setId()
-        // This id will be our primary key
-        let countId = window.localStorage.getItem('count')
-        window.localStorage.setItem(countId, JSON.stringify(obj));
+
+        if (this.id == 'edit') {
+          // get the data key prop from the save button
+          const dataKey = this.dataset.primary
+          // remove previous item before updating
+          window.localStorage.removeItem(dataKey)
+          // set the edited info with the same id as a primary key
+          window.localStorage.setItem(dataKey, JSON.stringify(obj));
+        } else {
+          // Set unique id every time the form is submitted
+          setId()
+          // This id will be our primary key to edit contacts
+          let countId = window.localStorage.getItem('count')
+          window.localStorage.setItem(countId, JSON.stringify(obj));
+        }
+
         // reload page from cache
         window.location.reload(false);
+
   }
 
-  edit(contact) {
-    //retrieve contact details
+  editContact() {
+    const primaryKey = (this.attributes[0].nodeValue);
+    //retrieve contact details using primary key
+    const stringObj = window.localStorage.getItem(primaryKey)
 
-    // run a match to see what's changed
-
-    //save to local storage
+    let parsedObj = JSON.parse(stringObj)
+    // decrement count in localstorage
+    showEditModal('form', parsedObj, primaryKey)
   }
 
-  delete(contact) {
-    // retrieve contact
+  deleteContact() {
+    // retrieve contact key
+    const dataKey = this.dataset.key
 
-    // clear from localstorage
+    let result = confirm("Are you sure you want to delete this contact ?");
+    if (result) {
+      // decrement count on localStorage
+      decrementCount()
+      // remove item using the data-key
+      window.localStorage.removeItem(dataKey)
+      // reload page from cache
+      window.location.reload(false);
+
+    }
   }
 
 }

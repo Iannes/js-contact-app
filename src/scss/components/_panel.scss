@@ -8,6 +8,11 @@
     border: 0!important;
   }
 
+  &-block {
+
+    flex: 1 1 100%;
+  }
+
   &-tabs,
   &-block {
     border: 0;

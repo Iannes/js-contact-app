@@ -16,7 +16,7 @@
         <button id="add-contact" class="button is-link is-outlined is-fullwidth">Add Contact</button>
     </header>
 <section class="app-wrapper">
-    <div class="modal">
+    <div id='add-modal' class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
@@ -25,10 +25,10 @@
             </header>
             <section class="modal-card-body">
                 <form id='form' action="">
-                    <input name='firstName' id="first-name" class="input" type="text" placeholder="First Name">
-                    <input name='lastName' id="last-name" class="input" type="text" placeholder="Last Name">
-                    <input name='phone' id="phone" class="input" type="number" placeholder="Phone">
-                    <input name='address' id="address" class="input" type="text" placeholder="Address">
+                    <input name='firstName' id="first-name" class="input" type="text" placeholder="First Name" value="">
+                    <input name='lastName' id="last-name" class="input" type="text" placeholder="Last Name" value="">
+                    <input name='phone' id="phone" class="input" type="number" placeholder="Phone" value="">
+                    <input name='address' id="address" class="input" type="text" placeholder="Address" value="">
                     <footer class="modal-card-foot">
                         <button type="submit" id="save-contact" class="button is-primary">Save changes</button>
                         <button id="cancel" class="button">Cancel</button>
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-
+    <div id="edit-modal"></div>
     <section class="contacts-wrapper">
         <article class="panel">
             <p class="panel-heading">Contacts</p>
