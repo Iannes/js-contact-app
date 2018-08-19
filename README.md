@@ -20,3 +20,9 @@ app/  # → Root folder
       index.html
       index.js
 ```
+
+### Todos
+
+- Fix `Delete` bug
+- Add `find duplicates` feature
+- Set `express` server instead of `localstorage`
