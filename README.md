@@ -24,5 +24,6 @@ app/  # → Root folder
 ### Todos
 
 - Fix `Delete` bug
+- Fix `Edit` bug
 - Add `find duplicates` feature
 - Add `node`
