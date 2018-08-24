@@ -25,4 +25,4 @@ app/  # → Root folder
 
 - Fix `Delete` bug
 - Add `find duplicates` feature
-- Set `express` server instead of `localstorage`
+- Add `node`
