@@ -1,5 +1,7 @@
 # ES6 Prototype Contact App
 
+[Live link](https://jolly-liskov-2eab68.netlify.com/)
+
 ## Installation
 ```
 Run npm install or yarn from the root directory.
