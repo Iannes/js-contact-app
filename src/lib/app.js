@@ -32,33 +32,33 @@ export default class App {
   openLightbox() {
     const modal = document.querySelector('.modal')
     modal.classList.add('open')
-  }
+  };
   closeLightbox() {
     const modal = document.querySelector('.modal')
     modal.classList.remove('open')
-  }
+  };
 
   saveContact(e) {
 
     e.preventDefault();
-      //get the form group
-      const form = document.getElementById('form').elements
-      // convert to array
-      const inputList = [...form]
-      // Filter out button elements
-      const filtered = inputList.filter(i => i.className !== 'button' && i.className !== 'button is-primary')
-      // loop through array and save data into an object
-      filtered.map((input, i) => {
-         newUser = { [input.attributes.name.value]: input.value }
-         obj = Object.assign(user, newUser);
-        })
-        // Set unique id every time the form is submitted
-        setId()
-        // This id will be our primary key
-        let countId = window.localStorage.getItem('count')
-        window.localStorage.setItem(countId, JSON.stringify(obj));
-        // reload page from cache
-        window.location.reload(false);
+  //get the form group
+  const form = document.getElementById('form').elements
+  // convert to array
+  const inputList = [...form]
+  // Filter out button elements
+  const filtered = inputList.filter(i => i.className !== 'button' && i.className !== 'button is-primary')
+  // loop through array and save data into an object
+  filtered.map((input, i) => {
+      newUser = { [input.attributes.name.value]: input.value }
+      obj = Object.assign(user, newUser);
+    })
+    // Set unique id every time the form is submitted
+    setId()
+    // This id will be our primary key
+    let countId = window.localStorage.getItem('count')
+    window.localStorage.setItem(countId, JSON.stringify(obj));
+    // reload page from cache
+    window.location.reload(false);
   }
 
   edit(contact) {
