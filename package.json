@@ -10,7 +10,7 @@
     "server": "json-server --watch db.json",
     "build": "webpack -p"
   },
-  "dependencies": {
+  "devDependencies": {
     "autoprefixer": "^8.6.3",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",

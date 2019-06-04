@@ -2,6 +2,10 @@ h1 {
   font-size: 40px;
   line-height: 43px;
   font-weight: bold;
+  @include for-size(phone-down) {
+    font-size: 30px;
+    margin-right: 20px;
+  }
 }
 
 a {
@@ -38,4 +42,7 @@ p {
     margin: auto;
     height: 100vh;
     box-shadow: 3px 3px 5px 6px #ccc;
+    @include for-size(phone-down) {
+      padding: 15px;
+  }
 }

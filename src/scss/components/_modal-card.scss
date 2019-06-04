@@ -1,6 +1,16 @@
 .modal {
+
+  &-card {
+    position: relative;
+    transition: all 1s cubic-bezier(0.27,-0.4, 0.37, 1.49);
+    transform: translateY(-900px);
+  }
   &.open {
     display: flex;
+
+    .modal-card {
+      transform: translateY(0);
+    }
   }
 
   &-card-head {
