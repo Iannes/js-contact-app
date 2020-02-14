@@ -35,6 +35,6 @@
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4",
     "webpack-md5-hash": "^0.0.6",
-    "yarn": "^1.17.3"
+    "yarn": "^1.22.0"
   }
 }
